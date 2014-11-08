@@ -37,7 +37,7 @@ function serveStatic(req,res,next){
     }
     
     var resourcePath = path.join(__dirname, req.url.pathname);
-    if (isStaticResource(resourcePath){
+    if (isStaticResource(resourcePath)){
         if (fs.existsSync(resourcePath)){
             var readStream = fs.createReadStream(resourcePath, {encoding : "utf8"});
             readStream.pipe(res);
@@ -45,8 +45,7 @@ function serveStatic(req,res,next){
             res.statusCode = 404;
             res.end();
         }
-    } else 
-    {
+    } else {
         next();
     }
 }
@@ -89,7 +88,8 @@ function handleCalculatorRequest(req,res,next){
     }
 }
 var server = http.createServer(function(req,res){
-    
+    console.log("a new request is made..");
+    serveStatic(req,res, function(){});         
     
 });
 server.listen(9090);
