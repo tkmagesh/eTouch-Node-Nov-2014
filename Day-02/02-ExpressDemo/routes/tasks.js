@@ -38,21 +38,6 @@ routes.get('/toggle/:id', function(req,res){
     var id = parseInt(req.params.id,10);
     var toggledTask = taskService.toggle(id);
     console.log(toggledTask);
-    res.write(JSON.stringify(toggledTask));
-    res.end();
+    res.json(toggledTask);
 });
 module.exports = routes;
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
