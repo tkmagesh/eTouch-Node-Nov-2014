@@ -1,16 +1,13 @@
 var express = require("express");
+var taskService =require("../services/tasks");
 var routes = express.Router();
 
-var taskList = [
-    'Learn JavaScript',
-    'Explore Angular.js',
-    'Master Node.js'
-];
+
 
 //index - list the tasks
 routes.get('/', function(req,res){
     var viewData = {
-        tasks : taskList
+        tasks : taskService.getAll()
     };
     res.render('tasks/index',   viewData);
 });

@@ -1,9 +1,14 @@
 html
     head
         title Task Manager
+        link(rel="stylesheet", href="/stylesheets/style.css")
     body
         h1 Tasks Manager
         hr
         ol
             each task in tasks
-                li= task     
+                li
+                    if task.isCompleted
+                        span.completed= task.name
+                    else
+                        span= task.name
