@@ -22,7 +22,8 @@ function add(taskName){
 function toggle(id){
     var taskToToggle = taskList.filter(function(task){
         return task.id === id;
-    });
+    })[0];
+    console.log(taskToToggle);
     /*if (taskToToggle)
         taskToToggle.isCompleted = !taskToToggle.isCompleted;*/
     
